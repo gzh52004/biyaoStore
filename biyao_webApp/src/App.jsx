@@ -121,6 +121,9 @@ class App extends React.Component {
                                 >
                                     <li className="tabbar-item tabbar-action ">
                                         <i className={item.icon}></i>
+                                        {item.name == "cart" ? (
+                                            <b className="cartNum">0</b>
+                                        ) : null}
                                         <div className="tabbar-itemtitle">
                                             {item.text}
                                         </div>

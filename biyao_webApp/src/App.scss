@@ -21,6 +21,25 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    .item.icon {
+        background-color: orange;
+    }
+    .cartNum {
+        position: absolute;
+        top: 0;
+        right: v(120);
+        background-color: rgb(172, 0, 70);
+        color: rgb(232, 230, 227);
+        display: block;
+        width: v(16);
+        height: v(16);
+        line-height: v(16);
+        text-align: center;
+        border-radius: v(8);
+        background-color: #d70057;
+        font-size: v(12);
+        z-index: 3;
+    }
 }
 .iconfont {
     font-size: v(20) !important;
