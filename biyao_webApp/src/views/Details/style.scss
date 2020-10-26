@@ -1,0 +1,22 @@
+@import '../../assets/sass/vw.scss';
+footer{
+    position: fixed;
+    height: vw(120);
+    bottom: 0;
+    display: flex;
+    width: vw(750);
+    div{
+        border:vw(1) solid purple; 
+        display: flex;
+        width: vw(749);
+        .service{
+            border-right:vw(1) solid purple;
+        }
+        span{
+            display: block;
+            width: vw(375);
+            line-height: vw(120);
+            text-align: center;
+        }
+    }
+}

@@ -10,6 +10,7 @@ import Cart from '@/views/Cart';
 import User from '@/views/User';
 import Login from '@/views/Login';
 import Reg from '@/views/Reg';
+import Details from "@/views/Details"
 
 class App extends React.Component {
     state = {
@@ -51,6 +52,13 @@ class App extends React.Component {
                 name: 'login',
                 component: Login,
             },
+            {
+                text: '详情',
+                path: '/details',
+                name: 'details',
+                component: Details,
+            },
+
 
         ],
     };
@@ -60,7 +68,7 @@ class App extends React.Component {
         const { menu } = this.state;
         return (
             <div>
-                App
+                
 
                 <Switch>
                     {

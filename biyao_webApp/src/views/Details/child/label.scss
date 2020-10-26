@@ -1,0 +1,24 @@
+@import '../../../assets/sass/vw.scss';
+@import"../../../assets/sass/vw.scss";
+@import"../../../assets/sass/common.scss";
+
+ul{
+    display: flex;
+    width: vw(750);
+    height: vw(80);
+
+    li{
+        width:vw(250);
+        text-align: center;
+        line-height: vw(80);
+        color:#353535;
+        font-size: vw(32);
+        
+    }
+
+}
+.active{
+    color:pink
+}
+
+
