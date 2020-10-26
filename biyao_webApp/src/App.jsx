@@ -119,6 +119,7 @@ class App extends React.Component {
                                     to={item.path}
                                     activeStyle={{ color: "#d70057" }}
                                     key={item.name}
+                                    replace
                                 >
                                     <li className="tabbar-item tabbar-action ">
                                         <i className={item.icon}></i>
