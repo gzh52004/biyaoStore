@@ -10,6 +10,7 @@ import Cart from "@/views/Cart";
 import User from "@/views/User";
 import Login from "@/views/Login";
 import Reg from "@/views/Reg";
+import Details from "@/views/Details";
 import "./App.scss";
 
 @withRouter
@@ -52,6 +53,12 @@ class App extends React.Component {
                 path: "/login",
                 name: "login",
                 component: Login
+            },
+            {
+                text: "登录",
+                path: "/details",
+                name: "details",
+                component: Details
             }
         ],
 
