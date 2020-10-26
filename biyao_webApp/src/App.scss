@@ -1,0 +1,30 @@
+@import "@/assets/sass/common.scss";
+@import "@/assets/sass/vw.scss";
+
+.tabbar-container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: vw(100);
+    border-top: 1px solid #f4f4f4;
+    font-size: vw(14);
+    display: flex;
+    justify-content: space-around;
+    z-index: 9999;
+    background: #fff;
+}
+.tabbar-item {
+    width: vw(150);
+    height: 100%;
+    font-size: vw(14);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.iconfont {
+    font-size: v(20) !important;
+}
+.tabbar-itemtitle {
+    text-align: center;
+}
