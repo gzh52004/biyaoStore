@@ -106,7 +106,7 @@ class App extends React.Component {
         const { route, menu } = this.state;
 
         let currPath = this.props.location.pathname.split("/")[1];
-        console.log(currPath);
+        // console.log(currPath);
         return (
             <div className="tabBarWrap">
                 {/* 根据哈西值判断是否显示底部导航栏：商品列表，商品详情页不显示 */}
