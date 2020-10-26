@@ -1,0 +1,13 @@
+.list {
+  position: relative;
+  nav {
+    display: flex;
+
+    .active {
+      color: hsl(120, 43%, 54%);
+    }
+  }
+  .content {
+    position: ab;
+  }
+}

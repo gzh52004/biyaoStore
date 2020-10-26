@@ -51,7 +51,6 @@ class App extends React.Component {
                 name: 'login',
                 component: Login,
             },
-
         ],
     };
 
