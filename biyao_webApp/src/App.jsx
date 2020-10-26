@@ -1,7 +1,6 @@
 import React from "react"; //React.createElement()，用组件的地方都需要引用；
 import { Route, Redirect, Switch, withRouter } from "react-router-dom";
 // React-router4 提供了导航功能的组件；安装npm install react-router-dom -D
-
 import "antd-mobile/dist/antd-mobile.css";
 import "@/assets/sass/common.scss";
 
@@ -19,7 +18,7 @@ import "./App.scss";
 
 class App extends React.Component {
     state = {
-        // 配置一级路由表，isNav: true为导航栏
+        // 配置一级路由表，isNav: true 会渲染在底部导航栏
         routes: [
             {
                 text: "首页",
@@ -93,11 +92,12 @@ class App extends React.Component {
 
     render() {
         const { routes } = this.state;
+        //路由地址监听
         const currPath = this.props.location.pathname.split("/")[1];
         const tabbarRoutes = routes.filter(route => route.isNav === true);
-        // console.log(tabbarRoutes);
         return (
             <div className="App">
+                {/* 给底部导航栏TabBar传参 */}
                 <TabBar routes={tabbarRoutes} path={currPath} />
                 <Switch>
                     {routes.map(item => {
