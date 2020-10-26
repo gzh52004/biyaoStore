@@ -1,0 +1,11 @@
+@import "@/assets/sass/common.scss";
+.notfoundWrap {
+    text-align: center;
+    font-size: vw(22);
+    display: flex;
+    width: 100%;
+    height: vw(600);
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}

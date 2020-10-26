@@ -1,10 +1,11 @@
 import React from "react"; //React.createElement()，用组件的地方都需要引用；
-import { Route, Redirect, Switch, withRouter, NavLink } from "react-router-dom";
+import { Route, Redirect, Switch, withRouter } from "react-router-dom";
 // React-router4 提供了导航功能的组件；安装npm install react-router-dom -D
 
 import "antd-mobile/dist/antd-mobile.css";
 import "@/assets/sass/common.scss";
 
+import TabBar from "@/components/TabBar";
 import Home from "@/views/Home";
 import Classify from "@/views/Classify";
 import Cart from "@/views/Cart";
@@ -13,64 +14,19 @@ import Login from "@/views/Login";
 import Reg from "@/views/Reg";
 import List from "@/views/List";
 import Details from "@/views/Details";
+import Notfound from "@/views/Notfound";
 import "./App.scss";
 
-@withRouter
 class App extends React.Component {
     state = {
-        // 配置一级路由表
-        route: [
-            {
-                text: "首页",
-                path: "/home",
-                name: "home",
-                component: Home
-            },
-            {
-                text: "分类",
-                path: "/classify",
-                name: "classify",
-                component: Classify
-            },
-            {
-                text: "购物车",
-                path: "/cart",
-                name: "cart",
-                component: Cart
-            },
-            {
-                text: "我的",
-                path: "/user",
-                name: "user",
-                component: User
-            },
-            {
-                text: "注册",
-                path: "/reg",
-                name: "reg",
-                component: Reg
-            },
-            {
-                text: "登录",
-                path: "/login",
-                name: "login",
-                component: Login
-            },
-            {
-                text: "分类",
-                path: "/list",
-                name: "list",
-                component: List
-            }
-        ],
-
-        //底部导航栏
-        menu: [
+        // 配置一级路由表，isNav: true为导航栏
+        routes: [
             {
                 text: "首页",
                 path: "/home",
                 name: "home",
                 component: Home,
+                isNav: true,
                 icon: "iconfont icon-home2"
             },
             {
@@ -78,6 +34,7 @@ class App extends React.Component {
                 path: "/classify",
                 name: "classify",
                 component: Classify,
+                isNav: true,
                 icon: "iconfont icon-fenlei"
             },
             {
@@ -85,6 +42,7 @@ class App extends React.Component {
                 path: "/cart",
                 name: "cart",
                 component: Cart,
+                isNav: true,
                 icon: "iconfont icon-cart"
             },
             {
@@ -92,45 +50,57 @@ class App extends React.Component {
                 path: "/user",
                 name: "user",
                 component: User,
+                isNav: true,
                 icon: "iconfont icon-wode"
+            },
+            {
+                text: "注册",
+                path: "/reg",
+                name: "reg",
+                component: Reg,
+                isNav: false
+            },
+            {
+                text: "登录",
+                path: "/login",
+                name: "login",
+                component: Login,
+                isNav: false
+            },
+            {
+                text: "商品列表",
+                path: "/list",
+                name: "list",
+                component: List,
+                isNav: false
+            },
+            {
+                text: "商品详情",
+                path: "/details",
+                name: "details",
+                component: Details,
+                isNav: false
+            },
+            {
+                text: "404",
+                path: "/notfound",
+                name: "notfound",
+                component: Notfound,
+                isNav: false
             }
         ]
     };
 
     render() {
-        const { route, menu } = this.state;
-
-        let currPath = this.props.location.pathname.split("/")[1];
-        // console.log(currPath);
+        const { routes } = this.state;
+        const currPath = this.props.location.pathname.split("/")[1];
+        const tabbarRoutes = routes.filter(route => route.isNav === true);
+        // console.log(tabbarRoutes);
         return (
             <div className="App">
-                {/* 根据哈西值判断是否显示底部导航栏：商品列表，商品详情页不显示 */}
-                {currPath != "details" && currPath != "list" ? (
-                    <nav>
-                        <ul className="tabbar-container">
-                            {menu.map(item => (
-                                <NavLink
-                                    to={item.path}
-                                    activeStyle={{ color: "#d70057" }}
-                                    key={item.name}
-                                    replace
-                                >
-                                    <li className="tabbar-item tabbar-action ">
-                                        <i className={item.icon}></i>
-                                        {item.name == "cart" ? (
-                                            <b className="cartNum">0</b>
-                                        ) : null}
-                                        <div className="tabbar-itemtitle">
-                                            {item.text}
-                                        </div>
-                                    </li>
-                                </NavLink>
-                            ))}
-                        </ul>
-                    </nav>
-                ) : null}
+                <TabBar routes={tabbarRoutes} path={currPath} />
                 <Switch>
-                    {route.map(item => {
+                    {routes.map(item => {
                         return (
                             <Route
                                 key={item.name}
@@ -139,12 +109,7 @@ class App extends React.Component {
                             />
                         );
                     })}
-                    <Route
-                        path="/notfound"
-                        render={() => {
-                            <div>404</div>;
-                        }}
-                    />
+                    <Route path="/notfound" component={Notfound} />
                     <Redirect from="/" to="/home" exact />
                     <Redirect to="/notfound" />
                 </Switch>
@@ -153,4 +118,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default withRouter(App);

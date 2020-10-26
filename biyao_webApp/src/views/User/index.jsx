@@ -40,7 +40,7 @@ const User = () => {
     }));
 
     return (
-        <div>
+        <div className="userWrap">
             <div className="contentTop">
                 <div className="headercontent">
                     <span>
@@ -55,9 +55,10 @@ const User = () => {
             <div>
                 <div className="sub-title">
                     <span>我的主页</span>
-                    <i>></i>
+                    <i>&gt;</i>
                 </div>
                 <Grid
+                    className="grid"
                     data={data}
                     isCarousel
                     activeStyle={{ backgroundColor: "#f5f5f9" }}
