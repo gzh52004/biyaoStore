@@ -2,8 +2,8 @@ import React from "react"; //React.createElement()，用组件的地方都需要
 import { Route, Redirect, Switch, withRouter, NavLink } from "react-router-dom";
 // React-router4 提供了导航功能的组件；安装npm install react-router-dom -D
 
-import 'antd-mobile/dist/antd-mobile.css';
-import '@/assets/sass/common.scss';
+import "antd-mobile/dist/antd-mobile.css";
+import "@/assets/sass/common.scss";
 
 import Home from "@/views/Home";
 import Classify from "@/views/Classify";
@@ -97,7 +97,7 @@ class App extends React.Component {
         let currPath = this.props.location.pathname.split("/")[1];
         // console.log(currPath);
         return (
-            <div className="tabBarWrap">
+            <div className="App">
                 {/* 根据哈西值判断是否显示底部导航栏：商品列表，商品详情页不显示 */}
                 {currPath != "details" && currPath != "list" ? (
                     <nav>
@@ -107,6 +107,7 @@ class App extends React.Component {
                                     to={item.path}
                                     activeStyle={{ color: "#d70057" }}
                                     key={item.name}
+                                    replace
                                 >
                                     <li className="tabbar-item tabbar-action ">
                                         <i className={item.icon}></i>

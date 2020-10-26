@@ -1,0 +1,24 @@
+@import '../../../assets/sass/common.scss';
+
+
+
+ul{
+    display: flex;
+    width: vw(375);
+    height: vw(40);
+
+    li{
+        width:vw(250);
+        text-align: center;
+        line-height: vw(40);
+        color:#353535;
+        font-size: vw(16);
+        
+    }
+
+}
+.active{
+    color:pink
+}
+
+
