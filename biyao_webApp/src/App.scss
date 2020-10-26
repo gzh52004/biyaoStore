@@ -1,11 +1,15 @@
 @import "@/assets/sass/common.scss";
-@import "@/assets/sass/vw.scss";
+
+.App {
+    // text-align: center;
+    font-size: vw(16);
+}
 
 .tabbar-container {
     width: 100%;
     position: fixed;
     bottom: 0;
-    height: vw(100);
+    height: vw(50);
     border-top: 1px solid #f4f4f4;
     font-size: vw(14);
     display: flex;
@@ -14,7 +18,7 @@
     background: #fff;
 }
 .tabbar-item {
-    width: vw(150);
+    width: vw(75);
     height: 100%;
     font-size: vw(14);
     display: flex;
@@ -24,22 +28,22 @@
     .cartNum {
         position: absolute;
         top: 0;
-        right: v(120);
+        right: vw(120);
         background-color: rgb(172, 0, 70);
         color: rgb(232, 230, 227);
         display: block;
-        width: v(16);
-        height: v(16);
-        line-height: v(16);
+        width: vw(16);
+        height: vw(16);
+        line-height: vw(16);
         text-align: center;
-        border-radius: v(8);
+        border-radius: vw(8);
         background-color: #d70057;
-        font-size: v(12);
+        font-size: vw(14);
         z-index: 3;
     }
 }
 .iconfont {
-    font-size: v(20) !important;
+    font-size: vw(20) !important;
 }
 .tabbar-itemtitle {
     text-align: center;
