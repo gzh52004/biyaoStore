@@ -2,7 +2,7 @@ import React from 'react';//React.createElement()，用组件的地方都需要�
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';// React-router4 提供了导航功能的组件；安装npm install react-router-dom -D
 
 import 'antd-mobile/dist/antd-mobile.css';
-
+import '@/assets/sass/common.scss';
 
 import Home from '@/views/Home';
 import List from '@/views/List';
@@ -60,8 +60,6 @@ class App extends React.Component {
         const { menu } = this.state;
         return (
             <div>
-                App
-
                 <Switch>
                     {
                         menu.map((item) => {
