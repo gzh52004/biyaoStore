@@ -117,7 +117,7 @@ class App extends React.Component {
                             {menu.map(item => (
                                 <NavLink
                                     to={item.path}
-                                    activeStyle={{ color: "#7f4395" }}
+                                    activeStyle={{ color: "#d70057" }}
                                     key={item.name}
                                 >
                                     <li className="tabbar-item tabbar-action ">
