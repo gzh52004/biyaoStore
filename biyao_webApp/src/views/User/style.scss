@@ -1,0 +1,33 @@
+@import "@/assets/sass/common.scss";
+.contentTop {
+    height: vw(60);
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(to right bottom, #7f4395, #b74ddd);
+    background-size: 100% 100%;
+    padding: vw(20);
+    span {
+        float: left;
+        width: vw(60);
+        height: vw(60);
+        border-radius: vw(30);
+        margin-right: vw(10);
+        background-color: #fcf6fc;
+        img {
+            width: 100%;
+        }
+    }
+    h5 {
+        line-height: vw(60);
+        // color: #fff;
+        font-size: vw(15);
+    }
+}
+.sub-title {
+    display: flex;
+    height: vw(42);
+    line-height: vw(42);
+    padding: 0 vw(12);
+    justify-content: space-between;
+    font-size: vw(16);
+}
