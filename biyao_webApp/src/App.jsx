@@ -5,11 +5,12 @@ import { Route, Redirect, Switch, withRouter, NavLink } from "react-router-dom";
 import "antd-mobile/dist/antd-mobile.css";
 
 import Home from "@/views/Home";
-import List from "@/views/List";
+import Classify from "@/views/Classify";
 import Cart from "@/views/Cart";
 import User from "@/views/User";
 import Login from "@/views/Login";
 import Reg from "@/views/Reg";
+import List from "@/views/List";
 import Details from "@/views/Details";
 import "./App.scss";
 
@@ -26,9 +27,9 @@ class App extends React.Component {
             },
             {
                 text: "分类",
-                path: "/list",
-                name: "list",
-                component: List
+                path: "/classify",
+                name: "classify",
+                component: Classify
             },
             {
                 text: "购物车",
@@ -55,7 +56,13 @@ class App extends React.Component {
                 component: Login
             },
             {
-                text: "登录",
+                text: "商品列表",
+                path: "/list",
+                name: "list",
+                component: List
+            },
+            {
+                text: "商品详情",
                 path: "/details",
                 name: "details",
                 component: Details
@@ -73,9 +80,9 @@ class App extends React.Component {
             },
             {
                 text: "分类",
-                path: "/list",
-                name: "list",
-                component: List,
+                path: "/classify",
+                name: "classify",
+                component: Classify,
                 icon: "iconfont icon-fenlei"
             },
             {
@@ -99,10 +106,11 @@ class App extends React.Component {
         const { route, menu } = this.state;
 
         let currPath = this.props.location.pathname.split("/")[1];
+        console.log(currPath);
         return (
             <div className="tabBarWrap">
-                {/* 根据哈西判断是否显示底部导航栏 */}
-                {currPath != "details" ? (
+                {/* 根据哈西值判断是否显示底部导航栏：商品列表，商品详情页不显示 */}
+                {currPath != "details" && currPath != "list" ? (
                     <nav>
                         <ul className="tabbar-container">
                             {menu.map(item => (
@@ -134,7 +142,6 @@ class App extends React.Component {
                     })}
                     <Route
                         path="/notfound"
-                        exact
                         render={() => {
                             <div>404</div>;
                         }}
