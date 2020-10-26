@@ -56,18 +56,6 @@ class App extends React.Component {
                 name: "login",
                 component: Login
             },
-            {
-                text: "商品列表",
-                path: "/list",
-                name: "list",
-                component: List
-            },
-            {
-                text: "商品详情",
-                path: "/details",
-                name: "details",
-                component: Details
-            }
         ],
 
         //底部导航栏

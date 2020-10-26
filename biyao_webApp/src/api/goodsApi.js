@@ -10,12 +10,18 @@ function getGoods(findquery) {
     return request.get("/goods/list", {
         params: {
             page: 1,
-            pagesize: 1000,
+            pagesize: 100,
             findquery: findquery, // sortquery,
         }
     });
 }
 
+// 利用动态路由查询单个商品
+function getGoodsinf(id) {
+    return request.get("/goods/getgoodsinf/" + id);
+}
+
 export default {
-    getGoods
+    getGoods,
+    getGoodsinf,
 };
