@@ -1,5 +1,6 @@
 import React from "react"; //React.createElement()，用组件的地方都需要引用；
-import { Route, Redirect, Switch, withRouter, NavLink } from "react-router-dom"; // React-router4 提供了导航功能的组件；安装npm install react-router-dom -D
+import { Route, Redirect, Switch, withRouter, NavLink } from "react-router-dom";
+// React-router4 提供了导航功能的组件；安装npm install react-router-dom -D
 
 import "antd-mobile/dist/antd-mobile.css";
 
