@@ -1,0 +1,49 @@
+@import "@/assets/sass/common.scss";
+@import "@/assets/sass/vw.scss";
+
+.tabbar-container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: vw(100);
+    border-top: 1px solid #f4f4f4;
+    font-size: vw(14);
+    display: flex;
+    justify-content: space-around;
+    z-index: 9999;
+    background: #fff;
+}
+.tabbar-item {
+    width: vw(150);
+    height: 100%;
+    font-size: vw(14);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .item.icon {
+        background-color: orange;
+    }
+    .cartNum {
+        position: absolute;
+        top: 0;
+        right: v(120);
+        background-color: rgb(172, 0, 70);
+        color: rgb(232, 230, 227);
+        display: block;
+        width: v(16);
+        height: v(16);
+        line-height: v(16);
+        text-align: center;
+        border-radius: v(8);
+        background-color: #d70057;
+        font-size: v(12);
+        z-index: 3;
+    }
+}
+.iconfont {
+    font-size: v(20) !important;
+}
+.tabbar-itemtitle {
+    text-align: center;
+}
