@@ -1,0 +1,25 @@
+@import "@/assets/sass/common.scss"; // width:750;height:1334;
+.List {
+  .title {
+    height: v(85);
+    background-color: pink;
+  }
+  .select {
+    height: v(170);
+    background-color: royalblue;
+    .classify {
+    }
+    .sort {
+    }
+  }
+  .contentWrap {
+    background-color: #58bc58;
+    overflow-y: scroll;
+    .singleContent {
+      img {
+        width: v(374);
+        height: v(374);
+      }
+    }
+  }
+}

@@ -1,6 +1,10 @@
 @function vw($n) {
   @return ($n * 100 / 375) + vw;
 }
+@function v($n) {
+  // width:750;height:1334;
+  @return ($n * 100 / 750) + vw;
+}
 html,
 body,
 h1,
