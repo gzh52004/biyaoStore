@@ -57,13 +57,16 @@ const User = () => {
                     <span>我的主页</span>
                     <i>&gt;</i>
                 </div>
-                <Grid
-                    className="grid"
-                    data={data}
-                    isCarousel
-                    activeStyle={{ backgroundColor: "#f5f5f9" }}
-                    onClick={_el => console.log(_el)}
-                />
+
+                <div className="gridWrap">
+                    <Grid
+                        className="grid"
+                        data={data}
+                        isCarousel
+                        activeStyle={{ backgroundColor: "#f5f5f9" }}
+                        onClick={_el => console.log(_el)}
+                    />
+                </div>
             </div>
         </div>
     );
