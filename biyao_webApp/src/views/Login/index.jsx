@@ -103,9 +103,11 @@ const Login = props => {
                 <Form.Item
                 // {...tailLayout}
                 >
-                    <Button type="primary" htmlType="submit">
-                        登录
-                    </Button>
+                    <div className="box1">
+                        <Button type="primary" htmlType="submit">
+                            登录
+                        </Button>
+                    </div>
                 </Form.Item>
 
                 <Form.Item

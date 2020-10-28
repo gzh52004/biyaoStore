@@ -2,7 +2,7 @@
 .loginWrap {
     width: 100%;
     height: vw(600);
-    padding: vw(22);
+    padding: vw(20);
     padding-top: vw(52);
 
     h2 {
@@ -67,8 +67,14 @@
     .ant-checkbox-wrapper {
         font-size: vw(14);
     }
-    .ant-btn-primary {
-        background-color: #7f4395;
-        border-color: #7f4395;
+    .box1 {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+        .ant-btn-primary {
+            background-color: #7f4395;
+            border-color: #7f4395;
+            width: 96% !important;
+        }
     }
 }

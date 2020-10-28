@@ -100,9 +100,11 @@ const Reg = props => {
                 <Form.Item
                 // {...tailLayout}
                 >
-                    <Button type="primary" htmlType="submit">
-                        注册
-                    </Button>
+                    <div className="box1">
+                        <Button type="primary" htmlType="submit">
+                            注册
+                        </Button>
+                    </div>
                 </Form.Item>
 
                 <Form.Item
