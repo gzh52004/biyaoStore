@@ -1,9 +1,13 @@
 import React from "react";
 import { Grid } from "antd-mobile";
+import { withAuth } from "@/utils/hoc";
+import { getUser, logOut } from "@/utils/auth.js";
 
 import "./style.scss"; //引入自定义样式
 
-const User = () => {
+let User = props => {
+    // console.log(props);
+    let { currentUser: username } = props;
     let dataList = [
         {
             icon: "/img/user/person_center_icon_order_all.png",
@@ -39,6 +43,11 @@ const User = () => {
         text: item.text
     }));
 
+    let quit = () => {
+        logOut();
+        props.history.push("/user");
+    };
+
     return (
         <div className="userWrap">
             <div className="contentTop">
@@ -49,7 +58,7 @@ const User = () => {
                             alt="用户头像"
                         />
                     </span>
-                    <h5>username</h5>
+                    <h2>{username}</h2>
                 </div>
             </div>
             <div>
@@ -68,8 +77,18 @@ const User = () => {
                     />
                 </div>
             </div>
+            <div className="quitWrap">
+                <div
+                    className="quit"
+                    onClick={() => {
+                        quit();
+                    }}
+                >
+                    退出登录
+                </div>
+            </div>
         </div>
     );
 };
-
+User = withAuth(User);
 export default User;

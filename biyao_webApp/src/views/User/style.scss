@@ -1,6 +1,6 @@
 @import "@/assets/sass/common.scss";
 .contentTop {
-    height: vw(60);
+    height: vw(120);
     overflow: hidden;
     position: relative;
     background: linear-gradient(to right bottom, #7f4395, #b74ddd);
@@ -16,11 +16,12 @@
         img {
             width: 100%;
         }
+        margin-right: vw(10);
     }
-    h5 {
+    h2 {
         line-height: vw(60);
         // color: #fff;
-        font-size: vw(15);
+        // font-size: vw(15);
     }
 }
 .sub-title {
@@ -31,6 +32,21 @@
     justify-content: space-between;
     font-size: vw(16);
 }
+.quitWrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .quit {
+        background-color: #9e6fac;
+        height: vw(36);
+        width: 90%;
+        text-align: center;
+        line-height: vw(36);
+        margin-top: vw(50);
+        border-radius: vw(18);
+    }
+}
+
 .gridWrap {
     .am-grid-item-content {
         height: auto !important;
