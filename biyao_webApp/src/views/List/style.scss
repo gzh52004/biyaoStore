@@ -1,24 +1,50 @@
 @import "@/assets/sass/common.scss"; // width:750;height:1334;
 .List {
+  position: relative;
   .title {
+    top: 0px;
     height: v(85);
-    background-color: pink;
+    overflow: hidden;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    font-size: v(32);
+    line-height: v(85);
+    i {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+    }
   }
+
   .select {
-    height: v(170);
-    background-color: royalblue;
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    /* 吸顶3步曲 */
     .classify {
-    }
-    .sort {
-    }
-  }
-  .contentWrap {
-    background-color: #58bc58;
-    overflow-y: scroll;
-    .singleContent {
-      img {
-        width: v(374);
-        height: v(374);
+      position: relative;
+      height: v(90);
+      box-sizing: border-box;
+      ul {
+        width: v(750);
+        height: v(75);
+        padding: v(7) 0;
+        background: #fff;
+        border-bottom: 1px solid #efefef;
+        font-size: v(28);
+        overflow-x: scroll;
+        display: flex;
+        li {
+          flex-shrink: 0;
+          height: 100%;
+          line-height: v(75);
+          padding: 0 v(20);
+          &:active {
+            color: #7f4395;
+            border-bottom: 1.5px solid #7f4395;
+          }
+        }
       }
     }
   }

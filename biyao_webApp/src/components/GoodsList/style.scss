@@ -1,0 +1,62 @@
+@import "@/assets/sass/common.scss"; // width:750;height:1334;
+.GoodList {
+  .contentWrap {
+    padding-bottom: v(100);
+    .am-grid .am-flexbox .am-flexbox-item .am-grid-item-content {
+      padding: 0;
+      .singleContent {
+        img {
+          width: v(374);
+          height: v(374);
+          margin-bottom: v(16);
+        }
+        dl {
+          width: v(374);
+          // height: v(198);
+          font-size: v(24);
+          text-align: left;
+          dt {
+            color: #f7a701;
+            margin: 0 0 v(12) v(24);
+            font-size: v(34);
+            line-height: v(38);
+          }
+          .subtitle {
+            color: #bf9e6b;
+            margin: 0 0 v(8) v(24);
+            font-size: v(24);
+          }
+          .mainTitle {
+            margin-bottom: v(8);
+            color: #4a4a4a;
+            line-height: v(28);
+            margin: 0 0 v(8) v(24);
+          }
+          .thirdContent {
+            color: #bbbbbb;
+            font-size: v(20);
+            padding-top: v(6);
+            margin-left: v(24);
+          }
+        }
+      }
+    }
+  }
+  .goTop {
+    position: fixed;
+    right: 0;
+    bottom: v(120);
+    width: v(72);
+    height: v(72);
+    border: 1px solid rgba(180, 180, 180, 0.5);
+    border-radius: 50%;
+    // transition:all/具体属性值    运动时间s/ms   延迟时间s/ms
+    z-index: 10;
+    img {
+      width: 35%;
+      height: 35%;
+      display: inline-block;
+      margin: auto;
+    }
+  }
+}

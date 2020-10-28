@@ -6,6 +6,7 @@ import goodsApi from "@/api/goodsApi";
 import "./style.scss"; //引入自定义样式
 
 import ClassifyChild from "@/views/Classify/ClassifyChild";
+import Search from "@/components/Search"
 
 class Classify extends Component {
     state = {
@@ -54,6 +55,9 @@ class Classify extends Component {
         const { navClassify } = this.state;
         return (
             <div className="classify">
+                <div className='search'>
+                    <Search />
+                </div>
                 <nav>
                     <Flex direction='column'>
                         {navClassify.map(item => (

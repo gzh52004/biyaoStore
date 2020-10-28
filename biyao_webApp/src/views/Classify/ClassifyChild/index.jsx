@@ -107,9 +107,9 @@ class ClassifyChild extends Component {
         return (
             <div className="ClassifyChild">
                 <div className="title">
-                    <span>一</span>
+                    <span>&nbsp;&nbsp;&nbsp;一&nbsp;&nbsp;&nbsp;</span>
                     {title}
-                    <span>一</span>
+                    <span>&nbsp;&nbsp;&nbsp;一&nbsp;&nbsp;&nbsp;</span>
                 </div>
                 {
                     dataList.map(item =>
@@ -122,9 +122,15 @@ class ClassifyChild extends Component {
                             </div>
                             <div className='main'>
                                 {
-                                    <Grid data={item.typeArr} columnNum={3} hasLine={false}
+                                    <Grid data={item.typeArr}
+                                        columnNum={3}
+                                        hasLine={false}
+                                        activeStyle={false}
                                         renderItem={dataItem => (
-                                            <div className='contentWrap'>
+                                            <div
+                                                className='contentWrap'
+                                                onClick={() => this.props.history.push('/list')}
+                                            >
                                                 <img src={dataItem.imgUrl} alt='' />
                                                 <div >
                                                     <span>{dataItem.typeName}</span>

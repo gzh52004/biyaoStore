@@ -14,10 +14,11 @@
       width: 100%;
       text-align: center;
       font-size: v(28);
-      line-height: v(28);
-      padding: v(28) 0;
+      line-height: v(100);
+      // padding: v(28) 0;
       .active {
         color: #7f4395;
+        display: block;
         background-color: #fff;
         &:after {
           content: "";
@@ -28,7 +29,7 @@
           background-color: #7f4395;
           position: absolute;
           left: 0;
-          top: v(28);
+          top: v(35);
         }
       }
     }

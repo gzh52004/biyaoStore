@@ -2,6 +2,7 @@ import React from "react";
 import { Grid } from "antd-mobile";
 
 import "./style.scss"; //引入自定义样式
+import GoodList from "@/components/GoodsList";
 
 const User = () => {
     let dataList = [
@@ -67,6 +68,8 @@ const User = () => {
                         onClick={_el => console.log(_el)}
                     />
                 </div>
+
+                <GoodList />
             </div>
         </div>
     );
