@@ -1,0 +1,74 @@
+@import "@/assets/sass/common.scss";
+.loginWrap {
+    width: 100%;
+    height: vw(600);
+    padding: vw(22);
+    padding-top: vw(52);
+
+    h2 {
+        // background: linear-gradient(to right bottom, #7f4395, #b74ddd);
+        height: vw(100);
+        line-height: vw(100);
+        padding-left: vw(13);
+        color: white !important;
+        border-radius: vw(6);
+        display: flex;
+        justify-content: space-between;
+        i {
+            font-size: vw(30);
+        }
+    }
+
+    .ant-form-item-explain-error {
+        font-size: vw(16);
+    }
+
+    label {
+        font-size: vw(18);
+    }
+    #basic_username {
+        height: vw(40);
+        font-size: vw(18);
+        outline: none;
+    }
+
+    #basic_password {
+        height: vw(32);
+        font-size: vw(18);
+        // border-color: #7f4395;
+        // outline-color: #7f4395;
+    }
+    .ant-checkbox-inner {
+        background-color: #7f4395;
+        border-color: #7f4395 !important;
+    }
+    button {
+        width: 100%;
+        border-radius: vw(16);
+        font-size: vw(16);
+        height: vw(38);
+        line-height: vw(38);
+        margin-top: vw(8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+            height: vw(38);
+            line-height: vw(38);
+        }
+    }
+    p {
+        display: flex;
+        justify-content: space-between;
+        span {
+            font-size: vw(15);
+        }
+    }
+    .ant-checkbox-wrapper {
+        font-size: vw(14);
+    }
+    .ant-btn-primary {
+        background-color: #7f4395;
+        border-color: #7f4395;
+    }
+}

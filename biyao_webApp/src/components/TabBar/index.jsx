@@ -6,7 +6,10 @@ class TabBar extends React.Component {
     render() {
         const { routes, path } = this.props;
         //商品列表页，详情页隐藏TabBar
-        return path == "list" || path == "details" ? null : (
+        return path == "list" ||
+            path == "details" ||
+            path == "login" ||
+            path == "reg" ? null : (
             <nav>
                 <ul className="tabbar-container">
                     {routes.map(item => (
