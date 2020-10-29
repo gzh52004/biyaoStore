@@ -60,7 +60,7 @@ const Login = props => {
         }
     };
     return (
-        <div className="loginWrap">
+        <div>
             <h2 style={{ backgroundImage: "url('/img/user/topBg.png')" }}>
                 <span>用户登录</span>
                 <i
@@ -68,66 +68,67 @@ const Login = props => {
                         props.history.push("/home");
                     }}
                 >
-                    &nbsp;&nbsp;&lt;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&lt;&nbsp;
                 </i>
             </h2>
             <br />
-            <br />
-            <Form
-                {...layout}
-                name="basic"
-                initialValues={{ remember: true }}
-                onFinish={onFinish}
-                // onFinishFailed={onFinishFailed}
-            >
-                <Form.Item
-                    label="用户名"
-                    initialValue={username}
-                    name="username"
-                    rules={rules.username}
-                    hasFeedback
-                    className="formItem"
+            <div className="loginWrap">
+                <Form
+                    {...layout}
+                    name="basic"
+                    initialValues={{ remember: true }}
+                    onFinish={onFinish}
+                    // onFinishFailed={onFinishFailed}
                 >
-                    <Input />
-                </Form.Item>
+                    <Form.Item
+                        label="用户名"
+                        initialValue={username}
+                        name="username"
+                        rules={rules.username}
+                        hasFeedback
+                        className="formItem"
+                    >
+                        <Input />
+                    </Form.Item>
 
-                <Form.Item
-                    label="密码"
-                    name="password"
-                    rules={rules.password}
-                    className="formItem"
-                >
-                    <Input.Password />
-                </Form.Item>
+                    <Form.Item
+                        label="密码"
+                        name="password"
+                        rules={rules.password}
+                        className="formItem"
+                    >
+                        <Input.Password />
+                    </Form.Item>
 
-                <Form.Item
-                // {...tailLayout}
-                >
-                    <div className="box1">
-                        <Button type="primary" htmlType="submit">
-                            登录
-                        </Button>
-                    </div>
-                </Form.Item>
-
-                <Form.Item
+                    <Form.Item
                     // {...tailLayout}
-                    name="remember"
-                    valuePropName="checked"
-                >
-                    <Checkbox>七天内免登陆</Checkbox>
-                </Form.Item>
-            </Form>
-            <p>
-                <span>忘记密码</span>
-                <span
-                    onClick={() => {
-                        props.history.push("/reg");
-                    }}
-                >
-                    快速注册
-                </span>
-            </p>
+                    >
+                        <div className="box1">
+                            <Button type="primary" htmlType="submit">
+                                登录
+                            </Button>
+                        </div>
+                    </Form.Item>
+
+                    <Form.Item
+                        // {...tailLayout}
+                        name="remember"
+                        valuePropName="checked"
+                    >
+                        <Checkbox>七天内免登陆</Checkbox>
+                    </Form.Item>
+                </Form>
+                <p>
+                    <span>忘记密码</span>
+                    <span
+                        onClick={() => {
+                            props.history.push("/reg");
+                        }}
+                    >
+                        快速注册
+                    </span>
+                </p>
+            </div>
         </div>
     );
 };

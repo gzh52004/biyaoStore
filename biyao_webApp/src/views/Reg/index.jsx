@@ -58,7 +58,7 @@ const Reg = props => {
         }
     };
     return (
-        <div className="loginWrap">
+        <div>
             <h2 style={{ backgroundImage: "url('/img/user/topBg.png')" }}>
                 <span>免费注册</span>
                 <i
@@ -66,65 +66,66 @@ const Reg = props => {
                         props.history.push("/home");
                     }}
                 >
-                    &nbsp;&nbsp;&lt;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&lt;&nbsp;
                 </i>
             </h2>
             <br />
-            <br />
-            <Form
-                {...layout}
-                name="basic"
-                initialValues={{ remember: true }}
-                onFinish={onFinish}
-                // onFinishFailed={onFinishFailed}
-            >
-                <Form.Item
-                    label="用户名"
-                    name="username"
-                    rules={rules.username}
-                    hasFeedback
-                    className="formItem"
+            <div className="loginWrap">
+                <Form
+                    {...layout}
+                    name="basic"
+                    initialValues={{ remember: true }}
+                    onFinish={onFinish}
+                    // onFinishFailed={onFinishFailed}
                 >
-                    <Input />
-                </Form.Item>
+                    <Form.Item
+                        label="用户名"
+                        name="username"
+                        rules={rules.username}
+                        hasFeedback
+                        className="formItem"
+                    >
+                        <Input />
+                    </Form.Item>
 
-                <Form.Item
-                    label="密码"
-                    name="password"
-                    rules={rules.password}
-                    className="formItem"
-                >
-                    <Input.Password />
-                </Form.Item>
+                    <Form.Item
+                        label="密码"
+                        name="password"
+                        rules={rules.password}
+                        className="formItem"
+                    >
+                        <Input.Password />
+                    </Form.Item>
 
-                <Form.Item
-                // {...tailLayout}
-                >
-                    <div className="box1">
-                        <Button type="primary" htmlType="submit">
-                            注册
-                        </Button>
-                    </div>
-                </Form.Item>
+                    <Form.Item
+                    // {...tailLayout}
+                    >
+                        <div className="box1">
+                            <Button type="primary" htmlType="submit">
+                                注册
+                            </Button>
+                        </div>
+                    </Form.Item>
 
-                <Form.Item
-                // {...tailLayout}
-                // name="remember"
-                // valuePropName="checked"
-                >
-                    * 点击注册代表同意《必要软件隐私声明》
-                </Form.Item>
-            </Form>
-            <p>
-                <span></span>
-                <span
-                    onClick={() => {
-                        props.history.push("/login");
-                    }}
-                >
-                    已有账号，去登录
-                </span>
-            </p>
+                    <Form.Item
+                    // {...tailLayout}
+                    // name="remember"
+                    // valuePropName="checked"
+                    >
+                        * 点击注册代表同意《必要软件隐私声明》
+                    </Form.Item>
+                </Form>
+                <p>
+                    <span></span>
+                    <span
+                        onClick={() => {
+                            props.history.push("/login");
+                        }}
+                    >
+                        已有账号，去登录
+                    </span>
+                </p>
+            </div>
         </div>
     );
 };
