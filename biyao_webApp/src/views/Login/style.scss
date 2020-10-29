@@ -1,80 +1,82 @@
 @import "@/assets/sass/common.scss";
 
-h2 {
-    // background: linear-gradient(to right bottom, #7f4395, #b74ddd);
-    height: vw(120);
-    line-height: vw(120);
-    color: white !important;
-    display: flex;
-    justify-content: space-between;
-    i {
-        font-size: vw(30);
-    }
-    padding: 0 vw(26) !important;
-}
 .loginWrap {
-    width: 100%;
-    height: vw(600);
-    padding: vw(20);
-    // padding-top: vw(52);
-
-    .ant-form-item-explain-error {
-        font-size: vw(16);
-    }
-
-    label {
-        font-size: vw(18);
-    }
-    #basic_username {
-        height: vw(40);
-        font-size: vw(18);
-        outline: none;
-    }
-
-    #basic_password {
-        height: vw(32);
-        font-size: vw(18);
-        // border-color: #7f4395;
-        // outline-color: #7f4395;
-    }
-    .ant-checkbox-inner {
-        background-color: #7f4395;
-        border-color: #7f4395 !important;
-    }
-    button {
-        width: 100%;
-        border-radius: vw(16);
-        font-size: vw(16);
-        height: vw(38);
-        line-height: vw(38);
-        margin-top: vw(12);
-        margin-bottom: vw(8);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        span {
-            height: vw(38);
-            line-height: vw(38);
-        }
-    }
-    p {
+    h2 {
+        // background: linear-gradient(to right bottom, #7f4395, #b74ddd);
+        height: vw(120);
+        line-height: vw(120);
+        color: white !important;
         display: flex;
         justify-content: space-between;
-        span {
-            font-size: vw(15);
+        i {
+            font-size: vw(30);
         }
+        padding: 0 vw(26) !important;
     }
-    .ant-checkbox-wrapper {
-        font-size: vw(14);
-    }
-    .box1 {
-        width: 100% !important;
-        display: flex;
-        justify-content: center;
-        .ant-btn-primary {
+    .loginWrap {
+        width: 100%;
+        height: vw(600);
+        padding: vw(20);
+        // padding-top: vw(52);
+
+        .ant-form-item-explain-error {
+            font-size: vw(16);
+        }
+
+        label {
+            font-size: vw(18);
+        }
+        #basic_username {
+            height: vw(40);
+            font-size: vw(18);
+            outline: none;
+        }
+
+        #basic_password {
+            height: vw(32);
+            font-size: vw(18);
+            // border-color: #7f4395;
+            // outline-color: #7f4395;
+        }
+        .ant-checkbox-inner {
             background-color: #7f4395;
-            border-color: #7f4395;
-            width: 96% !important;
+            border-color: #7f4395 !important;
+        }
+        button {
+            width: 100%;
+            border-radius: vw(16);
+            font-size: vw(16);
+            height: vw(38);
+            line-height: vw(38);
+            margin-top: vw(12);
+            margin-bottom: vw(8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span {
+                height: vw(38);
+                line-height: vw(38);
+            }
+        }
+        p {
+            display: flex;
+            justify-content: space-between;
+            span {
+                font-size: vw(15);
+            }
+        }
+        .ant-checkbox-wrapper {
+            font-size: vw(14);
+        }
+        .box1 {
+            width: 100% !important;
+            display: flex;
+            justify-content: center;
+            .ant-btn-primary {
+                background-color: #7f4395;
+                border-color: #7f4395;
+                width: 96% !important;
+            }
         }
     }
 }

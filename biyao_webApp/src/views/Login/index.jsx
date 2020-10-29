@@ -60,7 +60,7 @@ const Login = props => {
         }
     };
     return (
-        <div>
+        <div className="loginWrap">
             <h2 style={{ backgroundImage: "url('/img/user/topBg.png')" }}>
                 <span>用户登录</span>
                 <i

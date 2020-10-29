@@ -58,7 +58,7 @@ const Reg = props => {
         }
     };
     return (
-        <div>
+        <div className="loginWrap">
             <h2 style={{ backgroundImage: "url('/img/user/topBg.png')" }}>
                 <span>免费注册</span>
                 <i
