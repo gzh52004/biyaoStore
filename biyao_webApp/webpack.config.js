@@ -18,7 +18,7 @@ module.exports = {
         // 配置服务器根目录
         contentBase: path.join(__dirname, "./public"), //拼接绝对路径
         port: 8888, //默认不写是 8080
-        host: "192.168.123.174", //主机名， 本地：localhost     127.0.0.1， 真机 0.0.0.0，
+        host: "10.3.140.152", //主机名， 本地：localhost     127.0.0.1， 真机 0.0.0.0，
         https: false, //协议
         open: true, //启动服务时自动打开浏览器访问
         //设置跨域代理
