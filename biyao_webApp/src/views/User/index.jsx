@@ -1,9 +1,14 @@
 import React from "react";
 import { Grid } from "antd-mobile";
+import { withAuth } from "@/utils/hoc";
+import { getUser, logOut } from "@/utils/auth.js";
 
 import "./style.scss"; //引入自定义样式
+import GoodList from "@/components/GoodsList";
 
-const User = () => {
+let User = props => {
+    // console.log(props);
+    let { currentUser: username } = props;
     let dataList = [
         {
             icon: "/img/user/person_center_icon_order_all.png",
@@ -39,17 +44,32 @@ const User = () => {
         text: item.text
     }));
 
+    let quit = () => {
+        logOut();
+        props.history.push("/user");
+    };
+
     return (
         <div className="userWrap">
             <div className="contentTop">
                 <div className="headercontent">
-                    <span>
-                        <img
-                            src="/img/user/person_center_icon_order_pay.png"
-                            alt="用户头像"
-                        />
-                    </span>
-                    <h5>username</h5>
+                    <div className="box1">
+                        <span>
+                            <img
+                                src="/img/user/person_center_icon_order_pay.png"
+                                alt="用户头像"
+                            />
+                        </span>
+                        <h2>{username}</h2>
+                    </div>
+                    <div className="box2">
+                        <i
+                            className="iconfont icon-tuichu"
+                            onClick={() => {
+                                quit();
+                            }}
+                        ></i>
+                    </div>
                 </div>
             </div>
             <div>
@@ -57,16 +77,21 @@ const User = () => {
                     <span>我的主页</span>
                     <i>&gt;</i>
                 </div>
-                <Grid
-                    className="grid"
-                    data={data}
-                    isCarousel
-                    activeStyle={{ backgroundColor: "#f5f5f9" }}
-                    onClick={_el => console.log(_el)}
-                />
+
+                <div className="gridWrap">
+                    <Grid
+                        className="grid"
+                        data={data}
+                        isCarousel
+                        activeStyle={{ backgroundColor: "#f5f5f9" }}
+                        onClick={_el => console.log(_el)}
+                    />
+                </div>
+
+                <GoodList />
             </div>
         </div>
     );
 };
-
+User = withAuth(User);
 export default User;

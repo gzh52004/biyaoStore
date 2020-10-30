@@ -1,26 +1,48 @@
 @import "@/assets/sass/common.scss";
 .contentTop {
-    height: vw(60);
+    height: vw(120);
     overflow: hidden;
     position: relative;
     background: linear-gradient(to right bottom, #7f4395, #b74ddd);
     background-size: 100% 100%;
     padding: vw(20);
-    span {
-        float: left;
-        width: vw(60);
-        height: vw(60);
-        border-radius: vw(30);
-        margin-right: vw(10);
-        background-color: #fcf6fc;
-        img {
-            width: 100%;
+    .headercontent {
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        .box1 {
+            display: flex;
+            span {
+                float: left;
+                width: vw(60);
+                height: vw(60);
+                border-radius: vw(30);
+                margin-right: vw(10);
+                background-color: #fcf6fc;
+                img {
+                    width: 100%;
+                }
+                margin-right: vw(24);
+            }
+            h2 {
+                padding-top: vw(8);
+                line-height: vw(60);
+                color: white;
+                // color: #fff;
+                // font-size: vw(15);
+            }
         }
-    }
-    h5 {
-        line-height: vw(60);
-        // color: #fff;
-        font-size: vw(15);
+        .box2 {
+            width: vw(46);
+            height: vw(46);
+            // background-color: orange;
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+            i {
+                font-size: vw(22) !important;
+            }
+        }
     }
 }
 .sub-title {
@@ -31,12 +53,16 @@
     justify-content: space-between;
     font-size: vw(16);
 }
-// .am-grid-item-content {
-//     height: auto !important;
-// }
-// .slider-list {
-//     height: auto !important;
-// }
-// .am-grid-text {
-//     font-size: vw(13) !important;
-// }
+
+.gridWrap {
+    margin-bottom: vw(12);
+    .am-grid-item-content {
+        height: auto !important;
+    }
+    .slider-list {
+        height: auto !important;
+    }
+    .am-grid-text {
+        font-size: vw(13) !important;
+    }
+}

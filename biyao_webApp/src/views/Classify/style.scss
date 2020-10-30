@@ -1,13 +1,46 @@
-.list {
+@import "@/assets/sass/common.scss"; // width:750;height:1334;
+.classify {
   position: relative;
   nav {
-    display: flex;
-
-    .active {
-      color: hsl(120, 43%, 54%);
+    position: absolute;
+    top: v(100);
+    left: 0;
+    overflow-y: scroll;
+    width: v(172);
+    height: v(1134);
+    background-color: #f7f7f7;
+    .am-flexbox-item {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      font-size: v(28);
+      line-height: v(100);
+      // padding: v(28) 0;
+      .active {
+        color: #7f4395;
+        display: block;
+        background-color: #fff;
+        &:after {
+          content: "";
+          display: block;
+          width: v(8);
+          height: v(28);
+          margin-left: v(2);
+          background-color: #7f4395;
+          position: absolute;
+          left: 0;
+          top: v(35);
+        }
+      }
     }
   }
   .content {
-    position: ab;
+    position: absolute;
+    top: v(100);
+    right: 0;
+    overflow-y: scroll;
+    width: v(750 - 172);
+    height: v(1134);
+    background-color: #fff;
   }
 }

@@ -1,0 +1,40 @@
+@import "@/assets/sass/common.scss"; // width:750;height:1334;
+.ClassifyChild {
+  .title {
+    font-size: v(30);
+    color: #4a4a4a;
+    height: v(98);
+    text-align: center;
+    line-height: v(98);
+    position: relative;
+  }
+  .typeWrap {
+    width: v(509);
+    height: v(68);
+    border-bottom: v(1) solid #ccc;
+    font-size: v(24);
+    margin: 0 0 v(20) v(30);
+    display: flex;
+    justify-content: space-between;
+    line-height: v(68);
+  }
+  .main {
+    margin-bottom: v(20);
+    width: v(541);
+    // height: v(600);
+    margin-left: v(30);
+    .contentWrap {
+      img {
+        display: inline-block;
+        text-align: center;
+        width: v(134) !important;
+        height: v(134) !important;
+      }
+      span {
+        color: #666;
+        font-size: v(22);
+        line-height: v(30);
+      }
+    }
+  }
+}

@@ -14,7 +14,7 @@
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-decorators": "^7.12.1",
     "@babel/preset-react": "^7.12.1",
-    "ant-design-mobile-form": "^1.0.3",
+    "antd": "^4.7.3",
     "antd-mobile": "^2.3.4",
     "axios": "^0.20.0",
     "babel-loader": "^8.1.0",
@@ -29,10 +29,11 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "babel-plugin-import": "^1.13.1",
     "css-loader": "^5.0.0",
     "node-sass": "^4.14.1",
     "react-router-dom": "^5.2.0",
-    "sass-loader": "^10.0.3",
+    "sass-loader": "^10.0.4",
     "style-loader": "^2.0.0"
   }
 }
