@@ -1,16 +1,18 @@
 @import "@/assets/sass/common.scss";
-
-.oUl {
-    display: flex;
-    width: vw(375);
-    height: vw(40);
-
-    .oLi {
-        width: vw(250);
-        text-align: center;
-        line-height: vw(40);
-        color: #353535;
-        font-size: vw(16);
+.label{
+    .oUl {
+        display: flex;
+        width: vw(375);
+        height: vw(40);
+        z-index: 1;
+        background-color: white;
+        .oLi {
+            width: vw(250);
+            text-align: center;
+            line-height: vw(40);
+            color: #353535;
+            font-size: vw(16);
+        }
     }
 }
 .active {

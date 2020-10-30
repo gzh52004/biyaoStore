@@ -1,14 +1,20 @@
 import React from 'react';
 
+
+
 import './style.scss'//引入自定义样式
 
-const Cart = function () {
-
-    return (
-        <div>
-            Cart
-        </div>
-    )
+class Cart extends React.Component {
+ 
+    componentDidMount() {
+        // simulate img loading
+       
+    }
+    render() {
+        return (
+            1
+        )
+    }
 }
-
+ 
 export default Cart;
