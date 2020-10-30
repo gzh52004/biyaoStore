@@ -68,6 +68,24 @@ module.exports = {
                                 [
                                     "@babel/plugin-proposal-class-properties",
                                     { loose: true }
+                                ],
+                                //antd，antd-mobile按需引入
+                                [
+                                    "import",
+                                    {
+                                        libraryName: "antd",
+                                        libraryDirectory: "es",
+                                        style: "css"
+                                    },
+                                    "antd"
+                                ],
+                                [
+                                    "import",
+                                    {
+                                        libraryName: "antd-mobile",
+                                        style: "css"
+                                    },
+                                    "adtd-mobile"
                                 ]
                             ]
                             // @babel/plugin-proposal-class-properties箭头函数写法，
