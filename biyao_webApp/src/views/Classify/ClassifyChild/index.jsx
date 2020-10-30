@@ -3,7 +3,10 @@ import { Grid } from 'antd-mobile';
 
 import goodsApi from "@/api/goodsApi";
 import "./style.scss"; //引入自定义样式
+import { inject_unount } from '@/utils/hoc'
 
+let UNLISTEN;
+@inject_unount
 class ClassifyChild extends Component {
 
     state = {
@@ -52,7 +55,7 @@ class ClassifyChild extends Component {
         await this.showTitle(id)
         let { title } = this.state;
         try {
-            const { data } = await goodsApi.getGoodsinf('5f97e82eb1eccbfdb5d765ea');
+            const { data } = await goodsApi.getGoodsinf('5f9b8f1fb1eccbfdb5d7b4c7');
             let allData = data.data[0].goodsClassify;
             // 筛选同一classify数据
             let newData = allData.filter(item =>
@@ -87,20 +90,27 @@ class ClassifyChild extends Component {
 
     }
 
-    // 路由监听.有问题，先用着
-    listen = this.props.history.listen((location, type) => {
-        let result = location.pathname.includes('/classify/')
-        if (result) {
-            // 会在全局环境上监听，跳到哪，就显示哪
-            this.initData(location.pathname[10]);
-        }
-    });
-
-
+    // 数据挂载前
     UNSAFE_componentWillMount() {
-        // 获取数据
+        // 初始获取数据
         this.initData();
+        // 使用路由监听的时后不要忘记解绑监听事件，不然会累积监听事件，监听事件的返回值是解绑函数；
+        let oldpath = '1';
+        UNLISTEN = this.props.history.listen((location, type) => {
+            if (location.pathname.includes('/classify/') && location.pathname[10] !== oldpath) {
+                this.initData(location.pathname[10]);
+                oldpath = location.pathname[10];
+            }
+        });
+
     }
+
+    // 用了UNSAFE_反而不行了
+    componentWillUnmount() {
+        UNLISTEN && UNLISTEN(); // 监听执行解绑
+
+    }
+
 
     render() {
         let { title, dataList } = this.state;

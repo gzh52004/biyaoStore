@@ -25,11 +25,6 @@ class List extends Component {
         ],
     }
 
-    UNSAFE_componentWillMount() {
-        // 获取数据
-    }
-
-
     render() {
         const { navList, navStyle } = this.state;
         return (
