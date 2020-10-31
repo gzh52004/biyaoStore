@@ -33,14 +33,19 @@
             }
         }
         .box2 {
-            width: vw(46);
+            width: vw(64);
             height: vw(46);
             // background-color: orange;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             justify-items: center;
             i {
                 font-size: vw(22) !important;
+            }
+            span {
+                width: vw(36) !important;
+                line-height: vw(36);
+                // background-color: orange;
             }
         }
     }

@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect, NavLink } from "react-router-dom";
 import { Flex } from 'antd-mobile';
 
-import goodsApi from "@/api/goodsApi";
 import "./style.scss"; //引入自定义样式
-
 import ClassifyChild from "@/views/Classify/ClassifyChild";
 import Search from "@/components/Search"
 

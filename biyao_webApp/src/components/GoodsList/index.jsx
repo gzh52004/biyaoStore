@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Grid } from 'antd-mobile';
+import { withRouter } from 'react-router-dom';
 
 import goodsApi from "@/api/goodsApi";
 import "./style.scss"; //引入自定义样式
+import { inject_unount } from '@/utils/hoc'
 
-
-
+@inject_unount
+@withRouter
 class GoodList extends Component {
 
     state = {
@@ -13,16 +15,21 @@ class GoodList extends Component {
         dataList: [],
         // 是否展示
         isShow: { display: "none" },
+        // 价格排序
+        priceIsSort: true,
     }
 
     // 功能：获取数据
-    async initData() {
+    async initData(findquery) {
         try {
-            const { data } = await goodsApi.getGoods();
-            let newdataList = data.data.slice(0, data.data.length - 1);
+            //  findquery是'{user:xxx}'
+            const { data } = await goodsApi.getGoods(findquery, { typeName: "衬衫/雪纺" });
+            let newdataList = data.data;
             this.setState({
                 dataList: newdataList
             });
+            // details
+            console.log(newdataList)
         } catch (err) {
             throw new Error('出错了', err);
         }
@@ -37,6 +44,7 @@ class GoodList extends Component {
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
     }
+
     handleScroll = (event) => {
         //滚动条滚动高度
         let scrollTop = document.documentElement.scrollTop;
@@ -55,12 +63,45 @@ class GoodList extends Component {
         document.documentElement.scrollTop = 0;
     }
 
+    // 热门排序
+    hotSort() {
+        this.initData({
+            commentNum: -1
+        });
+
+    }
+
+    // 价格排序
+    priceSort() {
+        let { priceIsSort } = this.state;
+        this.initData({
+            priceStr: priceIsSort ? -1 : 1
+        });
+        let newPriceIsSort = !priceIsSort;
+        this.setState({
+            priceIsSort: newPriceIsSort
+        })
+    }
+
     render() {
         const { dataList, isShow } = this.state;
         return (
             <div className='GoodList'>
                 <div className='sort'>
-
+                    <ul>
+                        <li onClick={() => {
+                            this.hotSort()
+                        }}>
+                            热门
+                        </li>
+                        <li onClick={() => {
+                            this.priceSort()
+                        }}>
+                            价格
+                            <span></span>
+                            <span></span>
+                        </li>
+                    </ul>
                 </div>
                 <div className='contentWrap'>
                     {
@@ -69,7 +110,10 @@ class GoodList extends Component {
                             activeStyle={false}
                             itemStyle={{ height: '20rem' }}
                             renderItem={dataItem => (
-                                <div className='singleContent'>
+
+                                <div className='singleContent' onClick={() => {
+                                    this.props.history.push('/details/' + dataItem.id)
+                                }}>
                                     <img src={'/img/classify/female/shirt/' + dataItem.imageOrigin} alt='' />
                                     <dl>
                                         <dt>
@@ -83,8 +127,8 @@ class GoodList extends Component {
                                         <dd className="mainTitle">
                                             {dataItem.mainTitle}
                                         </dd>
-                                        <dd className="thirdContent">
-                                            {dataItem.thirdContent ? dataItem.thirdContent : '暂无评论'}
+                                        <dd className="commentNum">
+                                            {dataItem.commentNum ? dataItem.commentNum + '条评论' : '暂无评论'}
                                         </dd>
                                     </dl>
                                 </div>
@@ -104,4 +148,5 @@ class GoodList extends Component {
         )
     }
 }
+
 export default GoodList;

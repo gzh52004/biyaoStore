@@ -75,7 +75,7 @@ class App extends React.Component {
             },
             {
                 text: "商品详情",
-                path: "/details",
+                path: "/details/:id",
                 name: "details",
                 component: Details,
                 isNav: false

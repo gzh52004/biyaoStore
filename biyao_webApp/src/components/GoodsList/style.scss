@@ -1,5 +1,47 @@
 @import "@/assets/sass/common.scss"; // width:750;height:1334;
 .GoodList {
+  .sort {
+    ul {
+      height: v(80);
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      line-height: v(80);
+      font-size: v(28);
+      background-color: #fff;
+      li {
+        flex: 1;
+        position: relative;
+        &:nth-child(1) {
+          border-right: 1px solid #f7f7f7;
+        }
+        &:active {
+          color: #7f4395;
+        }
+        span:nth-child(1) {
+          content: "";
+          width: 0px;
+          height: 0px;
+          border: v(8);
+          border-style: solid;
+          border-color: transparent transparent #6b6a6a;
+          display: inline-block;
+          transform: translate(v(8), v(-10));
+        }
+        span:nth-child(2) {
+          content: "";
+          width: 0px;
+          height: 0px;
+          border: v(8);
+          border-style: solid;
+          border-color: #6b6a6a transparent transparent;
+          display: inline-block;
+          transform: translate(v(-8), v(10));
+        }
+      }
+    }
+  }
+
   .contentWrap {
     padding-bottom: v(100);
     .am-grid .am-flexbox .am-flexbox-item .am-grid-item-content {
@@ -32,7 +74,7 @@
             line-height: v(28);
             margin: 0 0 v(8) v(24);
           }
-          .thirdContent {
+          .commentNum {
             color: #bbbbbb;
             font-size: v(20);
             padding-top: v(6);

@@ -1,7 +1,12 @@
 @import "@/assets/sass/common.scss";
 .Search {
   height: v(100);
-  background-color: #58bc58;
   text-align: center;
   line-height: v(100);
+  .am-search {
+    height: 100%;
+    .am-search-cancel {
+      color: rgb(61, 60, 60);
+    }
+  }
 }

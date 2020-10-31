@@ -6,15 +6,19 @@ import request from "@/utils/request"; //后缀是js可以省略
 
 // 获取商品信息 proxy 跨域;
 // 功能：获取单个用户信息       findquery是'{user:xxx}'
-function getGoods(findquery) {
+function getGoods(sortquery, findquery) {
+
+    // { findquery: { text: /t/ }, sortquery: {}, page: 1, pagesize: 20 }
     return request.get("/goods/list", {
         params: {
             page: 1,
             pagesize: 100,
-            findquery: findquery, // sortquery,
+            findquery,
+            sortquery: sortquery ? sortquery : { id: -1 }
         }
     });
 }
+
 
 // 利用动态路由查询单个商品
 function getGoodsinf(id) {
