@@ -34,7 +34,7 @@ let Cart = (props) => {
             <div className="cart">
                 <div className="head">
                     <h5 onClick={() => {
-                                    props.history.go(-1)
+                                    props.history.push("/home")
                                 }}><img src="/img/back.png" alt="" /></h5>
                     <div className="shopcart"><p>购物车</p></div>
                 </div>
