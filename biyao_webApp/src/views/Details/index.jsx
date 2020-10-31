@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel, List, WingBlank } from 'antd-mobile';
+import { Carousel, List, WingBlank, Toast, WhiteSpace, Button } from 'antd-mobile';
 import RenderTabBar from "./child/label.jsx";
 import goods from "../../api/goodsApi"
 import "./style.scss"; //引入自定义样式
@@ -108,14 +108,15 @@ class Details extends React.Component {
         imgHeight: 176,
         popup: 'none',
         lock: "true",
-        List: "",
         retreat: "none",
         currIdx: 0,// 修改获得数据，改变显示图片
         currl: null,//尺码选框高亮
         lsize: "",
         currcolor: null, //颜色框高亮
-        lcolor: "",
+        lcolor: null,
         number: 1,//购买数目变化
+        i: [],
+        check: true
     }
     //弹出购物选项框
     popup() {
@@ -177,12 +178,67 @@ class Details extends React.Component {
         }
     }
     //储存选择的商品数据
-    storage(src,color,size,num){
-        let i = []
-        i.push({src,color,size,num})
-        console.log(typeof(i))
-        localStorage.setItem("goods",JSON.stringify(i))
-        
+    storage(src, color, size, num, text, price, check) {
+        if (size && color) {
+            let arrData = JSON.parse(localStorage.getItem("goods"));
+            console.log("arrData:", arrData);
+            let arr1;
+            if (!arrData) {
+                arr1 = [];
+            } else {
+                arr1 = arrData;
+            }
+
+            let arr2 = [
+                { check, src, color, size, num, text, price }
+            ];
+
+            //把arr2合并到arr1，并返回新数据dataList
+            let dataList = arr2.reduce((pre, cur) => {
+                //find返回第一个符合条件的元素
+                let target = pre.find(pre => {
+                    //判断条件（要修改的地方）
+                    if (pre.src == cur.src && pre.size == cur.size) {
+                        //相同sku,size则数量添加
+                        cur.num = cur.num + pre.num;
+                        console.log("sameSrc:", 111)
+                        return true;
+                    }
+                });
+                if (target) {
+                    //相同则合并
+                    Object.assign(target, cur);
+                } else {
+                    //不同则添加
+                    pre.unshift(cur);
+                }
+                return pre;
+            }, arr1);
+
+            //dataList 是结果数据
+            console.log("dataList:", dataList);
+
+
+            if (localStorage.getItem("goods")) {
+                this.state.i = JSON.parse(localStorage.getItem("goods"));
+                // this.state.i.push({ check, src, color, size, num, text, price })
+                console.log(1)
+            } else {
+                console.log(this.state.i)
+                // this.state.i.push({ check, src, color, size, num, text, price })
+                console.log(2)
+            }
+            // this.state.i.push({src,color,size,num,text,price})
+            localStorage.setItem("goods", JSON.stringify(dataList))
+            setTimeout(() => {
+                this.props.history.push("/cart")
+            }, 20)
+        } else {
+            console.log(size && color)
+            return Toast.info('请选择颜色和尺码！！', 1);
+
+        }
+
     }
     //生命周期
     componentDidMount() {
@@ -259,13 +315,6 @@ class Details extends React.Component {
                     </div>
                 </div>
 
-                {/* {
-                    // data.map((item,idx)=>{
-                        return (<div style={{ display:`${popoup}`}}>
-                            <div key={idx}> <span>x</span></div>
-                        </div>)
-                    })
-                } */}
                 <div className="retreat_d" style={{ display: `${retreat}` }}>
                     <div className="retreat_dt" >
                     </div>
@@ -356,8 +405,13 @@ class Details extends React.Component {
 
 
                         <div className="popup_b">
-                            <span onClick={()=>{
-                                this.storage(currType.src,this.state.lcolor,this.state.lsize,this.state.number)
+                            <span onClick={() => {
+                                this.storage(currType.src, 
+                                    this.state.lcolor, 
+                                    this.state.lsize, 
+                                    this.state.number, data.text1, 
+                                    data.price, 
+                                    this.state.check)
                             }}>加入购物车</span>
                             <span className="buy">立即购买</span>
                         </div>
