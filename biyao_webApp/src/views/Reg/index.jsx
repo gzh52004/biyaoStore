@@ -16,7 +16,7 @@ const tailLayout = {
 const rules = {
     username: [
         { required: true, message: "用户名不能为空" },
-        { min: 2, max: 12, message: "密码长度必须为2-12位字符" },
+        { pattern: /^[0-9a-zA-Z_]{5,12}$/, message: "请输入5~12位数字或字母" },
         {
             async validator(rule, value) {
                 if (!value) {
@@ -34,7 +34,10 @@ const rules = {
     ],
     password: [
         { required: true, message: "密码不能为空" },
-        { min: 6, max: 12, message: "密码长度必须为6-12位字符" }
+        {
+            pattern: /^[0-9a-zA-Z_]{6,18}$/,
+            message: "请输入6~18位数字或字母。"
+        }
     ]
 };
 const Reg = props => {

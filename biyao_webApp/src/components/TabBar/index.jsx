@@ -9,6 +9,7 @@ class TabBar extends React.Component {
         return path == "list" ||
             path == "details" ||
             path == "login" ||
+            path == "cart" ||
             path == "reg" ? null : (
             <nav>
                 <ul className="tabbar-container">

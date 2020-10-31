@@ -46,7 +46,7 @@ let User = props => {
 
     let quit = () => {
         logOut();
-        props.history.push("/user");
+        props.history.push("/home");
     };
 
     return (
@@ -62,13 +62,14 @@ let User = props => {
                         </span>
                         <h2>{username}</h2>
                     </div>
-                    <div className="box2">
-                        <i
-                            className="iconfont icon-tuichu"
-                            onClick={() => {
-                                quit();
-                            }}
-                        ></i>
+                    <div
+                        className="box2"
+                        onClick={() => {
+                            quit();
+                        }}
+                    >
+                        <i className="iconfont icon-tuichu"></i>
+                        <span>退出</span>
                     </div>
                 </div>
             </div>
