@@ -14,6 +14,7 @@ import Reg from "@/views/Reg";
 import List from "@/views/List";
 import Details from "@/views/Details";
 import Notfound from "@/views/Notfound";
+import SearchRoute from "@/views/SearchRoute";
 import "./App.scss";
 
 class App extends React.Component {
@@ -78,6 +79,13 @@ class App extends React.Component {
                 path: "/details/:id",
                 name: "details",
                 component: Details,
+                isNav: false
+            },
+            {
+                text: "搜索页面",
+                path: "/search",
+                name: "search",
+                component: SearchRoute,
                 isNav: false
             },
             {

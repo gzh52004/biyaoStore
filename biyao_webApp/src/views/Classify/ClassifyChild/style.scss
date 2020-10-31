@@ -21,14 +21,17 @@
   .main {
     margin-bottom: v(20);
     width: v(541);
-    // height: v(600);
     margin-left: v(30);
+    display: flex;
+    flex-wrap: wrap;
     .contentWrap {
+      width: 33.33%;
+      flex-shrink: 0;
+      text-align: center;
       img {
         display: inline-block;
-        text-align: center;
-        width: v(134) !important;
-        height: v(134) !important;
+        width: v(134);
+        height: v(134);
       }
       span {
         color: #666;

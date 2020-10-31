@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Grid } from 'antd-mobile';
 
 import goodsApi from "@/api/goodsApi";
 import "./style.scss"; //引入自定义样式
@@ -105,10 +104,8 @@ class ClassifyChild extends Component {
 
     }
 
-    // 用了UNSAFE_反而不行了
     componentWillUnmount() {
         UNLISTEN && UNLISTEN(); // 监听执行解绑
-
     }
 
 
@@ -132,23 +129,20 @@ class ClassifyChild extends Component {
                             </div>
                             <div className='main'>
                                 {
-                                    <Grid data={item.typeArr}
-                                        columnNum={3}
-                                        hasLine={false}
-                                        activeStyle={false}
-                                        renderItem={dataItem => (
-                                            <div
-                                                className='contentWrap'
-                                                onClick={() => this.props.history.push('/list')}
-                                            >
-                                                <img src={dataItem.imgUrl} alt='' />
-                                                <div >
-                                                    <span>{dataItem.typeName}</span>
-                                                </div>
+                                    item.typeArr.map(typeItem =>
+                                        <div
+                                            key={typeItem.typeName}
+                                            className='contentWrap'
+                                            onClick={() => this.props.history.push('/list')}
+                                        >
+                                            <img src={typeItem.imgUrl} alt='' />
+                                            <div >
+                                                <span>{typeItem.typeName}</span>
                                             </div>
-                                        )}
-                                    />
+                                        </div>
+                                    )
                                 }
+
                             </div>
                         </div>
                     )

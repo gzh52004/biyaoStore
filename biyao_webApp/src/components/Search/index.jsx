@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { SearchBar } from 'antd-mobile';
+import { withRouter } from 'react-router-dom';
 
 import './style.scss'//引入自定义样式
-import goodsApi from "@/api/goodsApi";
+
+@withRouter
 class Search extends Component {
 
     state = {
@@ -14,25 +16,22 @@ class Search extends Component {
         this.setState({ value });
     };
 
-
     // 点击搜索和案件搜索 // {name:/xxx/i}
     onSubmit(val) {
-        let reg = new RegExp(val)
-        console.log(reg)
-        // goodsApi.getGoods()
-        //     .then(res => console.log(res))
-        //     .catch(err => {
-        //         throw new Error('出错了' + err)
-        //     })
-        // this.setState({
-        //     value: ''
-        // })
+        this.props.history.push({
+            pathname: '/search',
+            search: '?query=' + val,
+        })
+        this.setState({
+            value: ''
+        })
     }
 
     render() {
         return (
             <div className='Search'>
                 <SearchBar
+                    defaultValue={this.state.value}
                     value={this.state.value}
                     placeholder="请输入您想要的商品"
                     cancelText='搜索'

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Grid } from 'antd-mobile';
 import { withRouter } from 'react-router-dom';
 
 import goodsApi from "@/api/goodsApi";
@@ -17,28 +16,44 @@ class GoodList extends Component {
         isShow: { display: "none" },
         // 价格排序
         priceIsSort: true,
+        // 查询条件
+        searchQuery: '',
     }
 
     // 功能：获取数据
-    async initData(findquery) {
+    async initData(sortquery) {
+        const { searchQuery } = this.state;
         try {
             //  findquery是'{user:xxx}'
-            const { data } = await goodsApi.getGoods(findquery, { typeName: "衬衫/雪纺" });
-            let newdataList = data.data;
-            this.setState({
-                dataList: newdataList
-            });
-            // details
-            console.log(newdataList)
+            const { data } = await goodsApi.getGoods(sortquery, searchQuery ? searchQuery : { typeName: "衬衫/雪纺" });
+            if (data.code) {
+                // 查询成功
+                let newdataList = data.data;
+                this.setState({
+                    dataList: newdataList
+                });
+            }
         } catch (err) {
             throw new Error('出错了', err);
         }
 
     }
 
-    UNSAFE_componentWillMount() {
-        // 获取数据
-        this.initData();
+    async UNSAFE_componentWillMount() {
+        let search = {
+            mainTitle: this.props.searchQuery
+        }
+        if (this.props.searchQuery) {
+            await this.setState({
+                searchQuery: search
+            })
+            // 获取数据 
+            await this.initData();
+        } else {
+            // 获取数据
+            this.initData();
+        }
+
     }
 
     componentDidMount() {
@@ -87,55 +102,56 @@ class GoodList extends Component {
         const { dataList, isShow } = this.state;
         return (
             <div className='GoodList'>
-                <div className='sort'>
-                    <ul>
-                        <li onClick={() => {
-                            this.hotSort()
-                        }}>
-                            热门
-                        </li>
-                        <li onClick={() => {
-                            this.priceSort()
-                        }}>
-                            价格
-                            <span></span>
-                            <span></span>
-                        </li>
-                    </ul>
-                </div>
-                <div className='contentWrap'>
-                    {
-                        <Grid data={dataList}
-                            columnNum={2}
-                            activeStyle={false}
-                            itemStyle={{ height: '20rem' }}
-                            renderItem={dataItem => (
+                {
+                    dataList.length ?
+                        <>
+                            <div className='sort'>
+                                <ul>
+                                    <li onClick={() => {
+                                        this.hotSort()
+                                    }}>
+                                        热门
+                            </li>
+                                    <li onClick={() => {
+                                        this.priceSort()
+                                    }}>
+                                        价格↑↓
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='contentWrap'>
+                                {
+                                    dataList.map(item =>
+                                        <div
+                                            key={item.mainTitle}
+                                            className='singleContent'
+                                            onClick={() => {
+                                                this.props.history.push('/details/' + dataItem.id)
+                                            }}>
+                                            <img src={'/img/classify/female/shirt/' + item.imageOrigin} alt='' />
+                                            <dl>
+                                                <dt>
+                                                    ￥{item.priceStr}
+                                                </dt>
+                                                <dd className="subtitle">
+                                                    {
+                                                        item.subtitle.split("|")[0]
+                                                    }
+                                                </dd>
+                                                <dd className="mainTitle">
+                                                    {item.mainTitle}
+                                                </dd>
+                                                <dd className="commentNum">
+                                                    {item.commentNum ? item.commentNum + '条评论' : '暂无评论'}
+                                                </dd>
+                                            </dl>
+                                        </div>)
+                                }
+                            </div>
+                        </>
+                        : ''
+                }
 
-                                <div className='singleContent' onClick={() => {
-                                    this.props.history.push('/details/' + dataItem.id)
-                                }}>
-                                    <img src={'/img/classify/female/shirt/' + dataItem.imageOrigin} alt='' />
-                                    <dl>
-                                        <dt>
-                                            ￥{dataItem.priceStr}
-                                        </dt>
-                                        <dd className="subtitle">
-                                            {
-                                                dataItem.subtitle.split("|")[0]
-                                            }
-                                        </dd>
-                                        <dd className="mainTitle">
-                                            {dataItem.mainTitle}
-                                        </dd>
-                                        <dd className="commentNum">
-                                            {dataItem.commentNum ? dataItem.commentNum + '条评论' : '暂无评论'}
-                                        </dd>
-                                    </dl>
-                                </div>
-                            )}
-                        />
-                    }
-                </div>
                 <div className='goTop'
                     style={isShow}
                     onClick={() => {
@@ -144,6 +160,9 @@ class GoodList extends Component {
                 >
                     <img src="/img/goTop.png" alt="" />
                 </div>
+                {
+                    this.props.searchQuery && dataList.length === 0 ? <div style={{ textAlign: "center" }}> 商品有限，您查询的商品不存在</div> : ''
+                }
             </div>
         )
     }

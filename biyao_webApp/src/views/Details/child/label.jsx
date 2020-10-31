@@ -35,7 +35,7 @@ class TabExample extends React.Component {
             currindex: id
         });
         setTimeout(() => {
-            console.log("currindex=", this.state.currindex);
+            // console.log("currindex=", this.state.currindex);
         }, 100);
     }
 
@@ -46,7 +46,7 @@ class TabExample extends React.Component {
             let scrollTop =
                 document.documentElement.scrollTop || document.body.scrollTop;
             //console.log(this,8888)
-            console.log(scrollTop)
+            // console.log(scrollTop)
 
             // 节流模式
             clearInterval(timer);
@@ -66,7 +66,7 @@ class TabExample extends React.Component {
                         currindex: 1
                     });
                 }
-                console.log(1);
+                // console.log(1);
             }, 20);
         };
     }
@@ -77,10 +77,10 @@ class TabExample extends React.Component {
             // 找到锚点
             let anchorElement = document.getElementById(anchorName);
             // 如果对应id的锚点存在，就跳转到锚点
-            if(anchorElement) { anchorElement.scrollIntoView({block: 'start', behavior: 'smooth'}); }
+            if (anchorElement) { anchorElement.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
         }
-      }
-      
+    }
+
     render() {
         // console.log(this.state.currindex, 7788);
         let { data, contentClass, position, top } = this.state;
@@ -102,7 +102,7 @@ class TabExample extends React.Component {
                                 onClick={this.Update.bind(null, item.num)}
                             >
                                 {" "}
-                                <a  
+                                <a
                                     onClick={() => this.scrollToAnchor(`A${item.num}`)}
                                     className={
                                         this.state.currindex === item.num
@@ -117,7 +117,7 @@ class TabExample extends React.Component {
                         );
                     })}
                 </ul>
-               
+
             </div>
         );
     }

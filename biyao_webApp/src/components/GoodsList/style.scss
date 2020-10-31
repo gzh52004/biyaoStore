@@ -18,76 +18,64 @@
         &:active {
           color: #7f4395;
         }
-        span:nth-child(1) {
-          content: "";
-          width: 0px;
-          height: 0px;
-          border: v(8);
-          border-style: solid;
-          border-color: transparent transparent #6b6a6a;
-          display: inline-block;
-          transform: translate(v(8), v(-10));
-        }
-        span:nth-child(2) {
-          content: "";
-          width: 0px;
-          height: 0px;
-          border: v(8);
-          border-style: solid;
-          border-color: #6b6a6a transparent transparent;
-          display: inline-block;
-          transform: translate(v(-8), v(10));
-        }
       }
     }
   }
 
   .contentWrap {
+    display: flex;
+    flex-wrap: wrap;
     padding-bottom: v(100);
-    .am-grid .am-flexbox .am-flexbox-item .am-grid-item-content {
-      padding: 0;
-      .singleContent {
-        img {
-          width: v(374);
-          height: v(374);
-          margin-bottom: v(16);
+    .singleContent {
+      box-sizing: border-box;
+      width: 50%;
+      height: v(580);
+      flex-shrink: 0;
+      border-top: v(2) solid #f7f7f7;
+      &:nth-child(2n + 1) {
+        border-right: v(2) solid #f7f7f7;
+      }
+      img {
+        width: v(374);
+        height: v(374);
+        margin-bottom: v(16);
+      }
+      dl {
+        width: v(374);
+        // height: v(198);
+        font-size: v(24);
+        text-align: left;
+        dt {
+          color: #f7a701;
+          margin: 0 0 v(12) v(24);
+          font-size: v(34);
+          line-height: v(38);
         }
-        dl {
-          width: v(374);
-          // height: v(198);
+        .subtitle {
+          color: #bf9e6b;
+          margin: 0 0 v(8) v(24);
           font-size: v(24);
-          text-align: left;
-          dt {
-            color: #f7a701;
-            margin: 0 0 v(12) v(24);
-            font-size: v(34);
-            line-height: v(38);
-          }
-          .subtitle {
-            color: #bf9e6b;
-            margin: 0 0 v(8) v(24);
-            font-size: v(24);
-          }
-          .mainTitle {
-            margin-bottom: v(8);
-            color: #4a4a4a;
-            line-height: v(28);
-            margin: 0 0 v(8) v(24);
-          }
-          .commentNum {
-            color: #bbbbbb;
-            font-size: v(20);
-            padding-top: v(6);
-            margin-left: v(24);
-          }
+        }
+        .mainTitle {
+          margin-bottom: v(8);
+          color: #4a4a4a;
+          line-height: v(28);
+          margin: 0 0 v(8) v(24);
+        }
+        .commentNum {
+          color: #bbbbbb;
+          font-size: v(20);
+          padding-top: v(6);
+          margin-left: v(24);
         }
       }
     }
   }
+
   .goTop {
     position: fixed;
-    right: 0;
-    bottom: v(120);
+    right: v(40);
+    bottom: v(220);
     width: v(72);
     height: v(72);
     border: 1px solid rgba(180, 180, 180, 0.5);

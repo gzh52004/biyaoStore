@@ -30,7 +30,9 @@ class List extends Component {
         return (
             <div className='List'>
                 <div className='title'>
-                    <i onClick={() => this.props.history.push('/home')}>首页</i>
+                    <i onClick={() => this.props.history.push('/home')}>
+                        <span className="iconfont icon-home2"></span>
+                    </i>
                     女装
                 </div>
                 <div className='select '>

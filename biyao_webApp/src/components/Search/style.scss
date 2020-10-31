@@ -2,7 +2,10 @@
 .Search {
   height: v(100);
   text-align: center;
-  line-height: v(100);
+  /* 吸顶3步曲 */
+  position: sticky;
+  z-index: 10;
+  top: 0;
   .am-search {
     height: 100%;
     .am-search-cancel {

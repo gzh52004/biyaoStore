@@ -3,7 +3,7 @@ import request from "@/utils/request"; //后缀是js可以省略
 
 //功能：验证用户是否存在：存在就不给注册
 // 【注】get请求需要放在params对象里面； params: { username,},
-function checkname(username) {
+function checkName(username) {
     return request.get("/user/checkname", {
         params: {
             username,
@@ -30,7 +30,7 @@ function login(username, password) {
 }
 
 // 功能：获取单个用户信息       findquery是'{user:xxx}'
-function getuser(findquery) {
+function getUser(findquery) {
     return request.get("/user/list", {
         params: {
             page: 1,
@@ -42,7 +42,7 @@ function getuser(findquery) {
 }
 
 // 功能：验证token       
-function checktoken(token) {
+function checkToken(token) {
     return request.get("/user/verify", {
         params: {
             token,
@@ -68,11 +68,11 @@ function editCart(id, cartList) {
 
 
 export default {
-    checkname,
+    checkName,
     reg,
     login,
-    getuser,
-    checktoken,
+    getUser,
+    checkToken,
     edit,
     editCart,
 };
