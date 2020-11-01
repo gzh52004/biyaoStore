@@ -7,7 +7,6 @@ import "./style.scss"; //引入自定义样式
 import GoodList from "@/components/GoodsList";
 
 let User = props => {
-    // console.log(props);
     let { currentUser: username } = props;
     let dataList = [
         {
@@ -85,7 +84,7 @@ let User = props => {
                         data={data}
                         isCarousel
                         activeStyle={{ backgroundColor: "#f5f5f9" }}
-                        onClick={_el => console.log(_el)}
+                    // onClick={_el => console.log(_el)}
                     />
                 </div>
 

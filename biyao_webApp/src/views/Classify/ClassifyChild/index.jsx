@@ -54,7 +54,7 @@ class ClassifyChild extends Component {
         await this.showTitle(id)
         let { title } = this.state;
         try {
-            const { data } = await goodsApi.getGoodsinf('5f9b8f1fb1eccbfdb5d7b4c7');
+            const { data } = await goodsApi.getGoodsinf('5f9ec23cb1eccbfdb5d802ed');
             let allData = data.data[0].goodsClassify;
             // 筛选同一classify数据
             let newData = allData.filter(item =>

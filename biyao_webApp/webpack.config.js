@@ -9,9 +9,14 @@ module.exports = {
     entry: "./src/main.jsx",
 
     //  出口，编译文件时候出口
-    // output:{
+    output: {
+        // 编译后文件保存的目录
+        path: path.resolve('./dist'),
+        filename: 'js/[name]-[hash:5]-bundle.js',
+        // publicPath:'/public'
+    },
 
-    // },
+
 
     // 测试服务器，记得去package.json配置启动服务器的运行命令脚本：webpack-dev-server
     devServer: {

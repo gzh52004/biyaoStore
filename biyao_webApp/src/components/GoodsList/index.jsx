@@ -126,7 +126,7 @@ class GoodList extends Component {
                                             key={item.mainTitle}
                                             className='singleContent'
                                             onClick={() => {
-                                                this.props.history.push('/details/' + dataItem.id)
+                                                this.props.history.push('/details/' + item.id)
                                             }}>
                                             <img src={'/img/classify/female/shirt/' + item.imageOrigin} alt='' />
                                             <dl>
