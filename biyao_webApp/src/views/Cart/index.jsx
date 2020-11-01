@@ -9,12 +9,13 @@ import "./style.scss"; //引入自定义样式
 let Cart = (props) => {
     let [i, change] = useState(JSON.parse(localStorage.getItem("goods")));
     console.log(i, "最初的")
-    let allcheck = i.every((val) => val.check == true)
-    let [isallcheck, transform] = useState(allcheck)
-
+   
     if (i == null) {
         return <None></None>
     } else {
+        let allcheck = i.every((val) => val.check == true)
+        let [isallcheck, transform] = useState(allcheck)
+    
         const totalPrice = useMemo(function () {
             //计算总价格
             let z = i.filter((item) => item.check == true)
