@@ -161,8 +161,8 @@ class Details extends React.Component {
     render() {
         let { popup, retreat } = this.state
         let{ data} = this.state;
-        data ? data[0] :data;
-        let currType = data ? data[0].size[this.state.currIdx] :'' ;// 修改
+        data = data ? data[0] :data;
+        let currType = data ? data.size[this.state.currIdx] :'' ;// 修改
         return (
             <div className="details">
                 {
@@ -176,9 +176,10 @@ class Details extends React.Component {
                             beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
                             afterChange={index => console.log('slide to', index)}
                         >
-                            {data.banner.map(val => (
+                            {data.banner.map((val,idx) => (
     
                                 <img
+                                    key={idx}
                                     id='A1'
                                     src={`${val}`}
                                     style={{ width: '100%', verticalAlign: 'top' }}
@@ -272,8 +273,8 @@ class Details extends React.Component {
                                 <br />
                             </div>
                             <div className="choose">
-                                <h2>颜色：</h2>
-                                <div className="choose1">{data.type.map((item, idx) => {
+                                <h3>颜色：</h3>
+                                <div className="choose1">{data.size.map((item, idx) => {
                                     return (
                                         <div key={idx} onClick={() => {
                                             this.xiugai(idx, item.color)
@@ -288,7 +289,7 @@ class Details extends React.Component {
     
     
                                 <div className="choose2">
-                                    <h2>尺码：</h2>
+                                    <h3>尺码：</h3>
                                     <div className="choose2a">
                                         {currType.sizes.map((item, index) => {
                                             return (
@@ -301,7 +302,7 @@ class Details extends React.Component {
                                         })}</div>
                                 </div>
                                 <div className="amount">
-                                    <h2 >购买数量:</h2>
+                                    <h3 >购买数量:</h3>
                                     <div className="amount_choose">
                                         <span onClick={() => {
                                             this.minus()

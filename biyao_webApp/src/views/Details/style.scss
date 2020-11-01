@@ -57,8 +57,9 @@
                         display: block;
                         border-radius:vw(5);
                         height:vw(30);
-                        width: vw(45);
-                        line-height:vw(30) ;
+                        width: vw(50);
+                        line-height:vw(30);
+                        font-size: vw(14);
                         text-align: center;
                         border: vw(1) solid purple;
                     }
@@ -67,6 +68,7 @@
                    
                     .choose2a{
                         display: flex;
+                        flex-wrap:wrap; 
                         div{
                             margin-right: vw(15);
                             margin-top: vw(5);
@@ -87,7 +89,7 @@
                 .amount{
                     display: flex;
                     justify-content: space-between;
-                    margin-top: vw(60);
+                    margin-top: vw(30);
                     
                     .amount_choose{
                         margin-right: vw(15);
@@ -97,7 +99,7 @@
                             display: block;
                             width: vw(50);
                             text-align: center;
-                            font-size: vw(20);
+                            font-size: vw(16);
                             height: vw(30);
                             line-height: vw(30);
                         }
