@@ -50,7 +50,7 @@ class Details extends React.Component {
     }
     //修改传入的图片，显示在单独购买隐藏框的商品图片
     xiugai(id, item) {
-        console.log(item)
+        // console.log(item)
         this.setState({
             currIdx: id,
             currcolor: id,
@@ -59,7 +59,7 @@ class Details extends React.Component {
     }
     //隐藏框的尺码框高亮
     highlight(id, item) {
-        console.log(item)
+        // console.log(item)
         this.setState({
             currl: id,
             lsize: item,
@@ -87,7 +87,7 @@ class Details extends React.Component {
     storage(src, color, size, num, text, price, check) {
         if (size && color) {
             let arrData = JSON.parse(localStorage.getItem("goods"));
-            console.log("arrData:", arrData);
+            // console.log("arrData:", arrData);
             let arr1;
             if (!arrData) {
                 arr1 = [];
@@ -107,7 +107,7 @@ class Details extends React.Component {
                     if (pre.src == cur.src && pre.size == cur.size) {
                         //相同sku,size则数量添加
                         cur.num = cur.num + pre.num;
-                        console.log("sameSrc:", 111)
+                        // console.log("sameSrc:", 111)
                         return true;
                     }
                 });
@@ -122,7 +122,7 @@ class Details extends React.Component {
             }, arr1);
 
             //dataList 是结果数据
-            console.log("dataList:", dataList);
+            // console.log("dataList:", dataList);
 
 
             if (localStorage.getItem("goods")) {
@@ -140,7 +140,7 @@ class Details extends React.Component {
                 this.props.history.push("/cart")
             }, 20)
         } else {
-            console.log(size && color)
+            // console.log(size && color)
             return Toast.info('请选择颜色和尺码！！', 1);
 
         }
@@ -149,14 +149,14 @@ class Details extends React.Component {
     //生命周期
     componentWillMount() {
         goods.getGoods(null,{id:this.props.match.params.id}).then(res => {
-            console.log("data", res)
+            // console.log("data", res)
             this.setState({
                 data: res.data.data
             })
         }).catch(err => {
             console.log("err", err)
         })
-        console.log(1)
+        // console.log(1)
     }
     render() {
         let { popup, retreat } = this.state

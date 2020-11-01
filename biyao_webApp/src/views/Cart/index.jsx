@@ -8,7 +8,7 @@ import "./style.scss"; //引入自定义样式
 
 let Cart = (props) => {
     let [i, change] = useState(JSON.parse(localStorage.getItem("goods")));
-    console.log(i, "最初的")
+    // console.log(i, "最初的")
    
     if (i == null) {
         return <None></None>
@@ -19,7 +19,7 @@ let Cart = (props) => {
         const totalPrice = useMemo(function () {
             //计算总价格
             let z = i.filter((item) => item.check == true)
-            console.log(z, 585858)
+            // console.log(z, 585858)
             const total = z.reduce((prev, item) => prev + item.num * item.price, 0)
             return total
         }, [i])
@@ -27,9 +27,9 @@ let Cart = (props) => {
         //     //didmao //didupdata
         //     console.log(1)
         // })
-        console.log(props)
-        console.log(isallcheck, "新的全选")
-        console.log(i, "最新的i")
+        // console.log(props)
+        // console.log(isallcheck, "新的全选")
+        // console.log(i, "最新的i")
         // console.log(i, 7788)
         return (
             <div className="cart">
@@ -46,7 +46,7 @@ let Cart = (props) => {
                                 <input type="checkbox" onChange={() => { }} checked={item.check} onClick={() => {
                                     item.check = !item.check;
                                     allcheck = i.every((val) => val.check == true)
-                                    console.log(allcheck)
+                                    // console.log(allcheck)
                                     transform(allcheck);
                                     change([...i])
                                 }} />
