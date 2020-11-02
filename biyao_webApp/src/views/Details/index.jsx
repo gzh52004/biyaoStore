@@ -164,7 +164,7 @@ class Details extends React.Component {
         data = data ? data[0] : data;
         let currType = data ? data.size[this.state.currIdx] : '';// 修改
         return (
-            <div className="details">
+            <div id="details">
                 {
                     data ?
                         <>

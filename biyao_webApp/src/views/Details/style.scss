@@ -1,5 +1,6 @@
 @import "@/assets/sass/common.scss";
-.details{
+#details{
+    box-sizing: border-box;
     .popup{
         height: vw(667);
         width: vw(375);
@@ -212,6 +213,7 @@
        width: vw(375);
        padding: vw(5) vw(5);
        height: vw(35);
+       box-sizing: border-box;
        background-color: #FFFBF2;
     .retreat_u{
         display: flex;
@@ -229,12 +231,12 @@
    }
     .detail{
         width: vw(375);
-        padding: vw(0) vw(15);
+        box-sizing: border-box;
+       padding: vw(0) vw(15);
         padding-top: vw(15);
         background-color: #EEEEEE;
         dl{
             display: flex; 
-            
             margin-top: vw(30);
             padding-bottom: vw(22);
             font-size: vw(18);
