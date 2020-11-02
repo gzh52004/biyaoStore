@@ -31,6 +31,7 @@
       width: 50%;
       height: v(580);
       flex-shrink: 0;
+      background-color: #fff;
       border-top: v(2) solid #f7f7f7;
       &:nth-child(2n + 1) {
         border-right: v(2) solid #f7f7f7;

@@ -9,12 +9,12 @@ module.exports = {
     entry: "./src/main.jsx",
 
     //  出口，编译文件时候出口
-    // output: {
-    //     // 编译后文件保存的目录
-    //     path: path.resolve('./dist'),
-    //     filename: 'js/[name]-[hash:5]-bundle.js',
-    //     // publicPath:'/public'
-    // },
+    output: {
+        // 编译后文件保存的目录
+        path: path.resolve('./dist'),
+        filename: 'js/[name]-[hash:5]-bundle.js',
+        // publicPath:'/public'
+    },
 
 
 
