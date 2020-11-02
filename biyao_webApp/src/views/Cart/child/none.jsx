@@ -5,14 +5,20 @@ import "./none.scss"
 
 
 let none = function (props) {
-    //console.log(props)
+    // console.log(props)
     return (
         <div id="none">
             <div className="cart">
                 <div className="head">
-                    <h5 onClick={()=>{
-                        props.history.push("/list")
-                    }}><img src="/img/back.png" alt="" /></h5>
+                    <h5 style={{ display: 'flex' }}
+                        onClick={() => {
+                            // props.history.go(-1)
+                            props.history.push('/home')
+                        }}
+                    >
+                        {/* <img src="/img/back.png" alt="" /> */}
+                        <i style={{ margin: 'auto' }}> <span className="iconfont icon-home2"></span></i>
+                    </h5>
                     <div className="shopcart"><p>购物车</p></div>
                 </div>
             </div>
