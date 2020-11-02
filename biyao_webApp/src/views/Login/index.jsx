@@ -40,8 +40,8 @@ const Login = props => {
                 setUser(username, 7);
             } else {
                 //会话级别:关掉浏览器就没有了
-                setToken(data.token, 7);
-                setUser(username, 7);
+                setToken(data.token);
+                setUser(username);
             }
             message.success("登录成功");
             // 提取目标地址
