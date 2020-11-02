@@ -5,13 +5,13 @@ import "./none.scss"
 
 
 let none = function (props) {
-    console.log(props)
+    //console.log(props)
     return (
         <div id="none">
             <div className="cart">
                 <div className="head">
                     <h5 onClick={()=>{
-                        props.history.go(-1)
+                        props.history.push("/list")
                     }}><img src="/img/back.png" alt="" /></h5>
                     <div className="shopcart"><p>购物车</p></div>
                 </div>
