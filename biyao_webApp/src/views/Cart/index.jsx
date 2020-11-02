@@ -9,13 +9,13 @@ import "./style.scss"; //引入自定义样式
 let Cart = (props) => {
     let [i, change] = useState(JSON.parse(localStorage.getItem("goods")));
     // console.log(i, "最初的")
-   
+
     if (i == null) {
         return <None></None>
     } else {
         let allcheck = i.every((val) => val.check == true)
         let [isallcheck, transform] = useState(allcheck)
-    
+
         const totalPrice = useMemo(function () {
             //计算总价格
             let z = i.filter((item) => item.check == true)
@@ -35,8 +35,13 @@ let Cart = (props) => {
             <div className="cart">
                 <div className="head">
                     <h5 onClick={() => {
-                                    props.history.push("/home")
-                                }}><img src="/img/back.png" alt="" /></h5>
+                        // props.history.go(-1)
+                        props.history.push('/home')
+                    }}
+                        style={{ display: 'flex' }}>
+                        {/* <img src="/img/back.png" alt="" /> */}
+                        <i style={{ margin: 'auto' }}> <span className="iconfont icon-home2"></span></i>
+                    </h5>
                     <div className="shopcart"><p>购物车</p></div>
                 </div>
                 {
